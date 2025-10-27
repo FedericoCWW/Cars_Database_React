@@ -1,13 +1,14 @@
 /* Para los snippets usar la extension: ES7+ React/Redux/React-Native snippets*/
 import React from 'react'
 
-function Search({handleInput}) {
+function Search({handleInput, search}) {
   return (
     <div className='searchbox-wrap'>
         <input type='text' 
-        placeholder='Buscar un auto...' 
+        placeholder='Busca algo...' 
         className='searchbox' 
         onChange={handleInput}
+        onKeyUp={search}
         />
     </div>
   )

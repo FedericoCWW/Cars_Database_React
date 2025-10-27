@@ -1,13 +1,19 @@
 import React, {useState} from "react";
 import axios from 'axios';
 import Search from './componentes/Search.js'
+import { API_CONFIG } from './services/config.js';
 // https://api-ninjas.com/api/cars
 
 function App() {
-  const apiurl = './services/config.js'; 
+  const apiurl = API_CONFIG.base_url;
   const search = (e) => {
     if (e.key === 'Enter') {
-      axios(apiurl + "&s=")
+      axios(apiurl + "/"+ state.s).then(({data}) => {
+        let results = data.Search
+        setState(prevState => {
+          return {...prevState, results:results}
+        })
+      });
     }
   }
 
@@ -29,10 +35,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Holaaaa!!</h1>
+        <h1>Dios que hice</h1>
       </header>
       <main> {/* Aca van los componentes (barra de busqueda, resultados, popups con detalles, etc)*/}
-        <Search handleInput={handleInput}/>
+        <Search handleInput={handleInput} search={search}/>
       </main>
     </div>
   );
