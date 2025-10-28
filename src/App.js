@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from 'axios';
 import Search from './componentes/Search.js'
+import Results from './componentes/Results.js'
 import { API_CONFIG } from './services/config.js';
 // https://api-ninjas.com/api/cars
 
@@ -9,7 +10,8 @@ function App() {
   const search = (e) => {
     if (e.key === 'Enter') {
       axios(apiurl + "/"+ state.s).then(({data}) => {
-        let results = data.Search
+        let results = data.results
+        console.log(data)
         setState(prevState => {
           return {...prevState, results:results}
         })
@@ -39,6 +41,7 @@ function App() {
       </header>
       <main> {/* Aca van los componentes (barra de busqueda, resultados, popups con detalles, etc)*/}
         <Search handleInput={handleInput} search={search}/>
+        <Results results={state.results}/>
       </main>
     </div>
   );
