@@ -3,6 +3,7 @@ import axios from 'axios';
 import Search from './componentes/Search.js'
 import Results from './componentes/Results.js'
 import { API_CONFIG } from './services/config.js';
+import "@picocss/pico"; 
 // https://api-ninjas.com/api/cars
 
 function App() {
@@ -36,10 +37,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header container">
         <h1>Dios que hice</h1>
       </header>
-      <main> {/* Aca van los componentes (barra de busqueda, resultados, popups con detalles, etc)*/}
+      <main className="container"> {/* Aca van los componentes (barra de busqueda, resultados, popups con detalles, etc)*/}
         <Search handleInput={handleInput} search={search}/>
         <Results results={state.results}/>
       </main>

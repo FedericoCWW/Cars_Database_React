@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+.App {
+  min-height: 100vh;
+  background-color: #052940;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: darkslategray;
+  color: white;
 }
 
 code {
@@ -28,6 +33,7 @@ header h1 {
   color: white;
   font-size: 48px;
   font-weight: 500;
+  margin-bottom: 30px;
 }
 
 main {
@@ -39,23 +45,112 @@ main {
   display: block;
   width: 100%;
   padding: 15px;
-
   border: none;
   outline: none;
   background: none;
-
   background-color: #eee;
   border-radius: 8px;
-
   color: #53565a;
   font-size: 20px;
   font-weight: 300;
-
   transition: 0.4s ease-out;
+  margin-bottom: 30px;
 }
 
 .searchbox:focus {
-  box-shadow: 1px -1px 51px 13px rgba(39, 203, 255, 0.36);
-  -webkit-box-shadow: 1px -1px 51px 13px rgba(39, 203, 255, 0.36);
-  -moz-box-shadow: 1px -1px 51px 13px rgba(39, 203, 255, 0.36);
+  box-shadow: 0 0 0 2px rgba(39, 203, 255, 0.8);
+  background-color: white;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.results .result {
+  background: linear-gradient(135deg, #0a3d62, #1e5799);
+  border-radius: 12px;
+  padding: 20px 20px 50px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(39, 203, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.results .result:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border-color: rgba(39, 203, 255, 0.5);
+}
+
+.result h3 {
+  color: #27cbff;
+  margin: 0 0 10px 0;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.result h4 {
+  color: #ffffff;
+  padding-top: 10px;
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.result hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(39, 203, 255, 0.5),
+    transparent
+  );
+  margin: 15px 0;
+}
+
+.result p {
+  color: #e0e0e0;
+  margin: 8px 0;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.result .year {
+  color: #27cbff;
+  font-weight: 600;
+}
+
+.result .class {
+  color: #4cd964;
+  font-weight: 500;
+}
+
+.result img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  
+}
+
+.loading {
+  text-align: center;
+  color: #27cbff;
+  font-size: 1.2em;
+  margin-top: 50px;
+}
+
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container p {
+  color: inherit;
 }
